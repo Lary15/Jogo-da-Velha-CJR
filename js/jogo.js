@@ -20,6 +20,7 @@ function jogada(id){
     var col, row;
     var divJogada = document.getElementById(id);
 
+
     if(id[0] == 'a'){
         row = 0;
     }
@@ -45,7 +46,7 @@ function jogada(id){
 
 // Confere se o jogo chegou ao fim
 function confere(id){
-    
+
     if(i == -1){
         if(verificaId(id,player_one)){
             player_one.push(id);
@@ -62,13 +63,16 @@ function confere(id){
 
     if(verificaVitoria(player_one)){
         alert("X ganhou!");
+        reset_button();
     }
     if(verificaVitoria(player_two)){
         alert("O ganhou!");
+        reset_button();
     }
     // if que verifica se o jogo deu velha
     if(player_one.length + player_two.length == 9){
         alert("Deu Velha!");
+        reset_button();
     }
 }
 
@@ -108,7 +112,38 @@ function verificaId(id, player){
     for(var i=0; i < player.length; i++){
         if(id == player[i]){
             return(false);
-        }   
-    }        
+        }
+    }
     return(true);
+}
+
+
+function reset_button() {
+     var Tic_Tac_Toe = [
+         ['a1', 'a2', 'a3'],
+         ['b1', 'b2', 'b3'],
+         ['c1', 'c2', 'c3']
+     ];
+
+     var id_T;
+
+     for(var i = 0; i < 3; i++) {
+         for(var j = 0; j < 3; j++) {
+
+             id_T = Tic_Tac_Toe[i][j];
+             document.getElementById(id_T).innerHTML=" ";
+         }
+     }
+
+     player_one = [];
+     player_two = [];
+
+     matriz = [
+         [0,0,0],
+         [0,0,0],
+         [0,0,0]
+     ];
+
+     i = 1;
+
 }

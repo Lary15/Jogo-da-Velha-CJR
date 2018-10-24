@@ -43,39 +43,36 @@ function jogada(id){
     }
 }
 
+// Confere se o jogo chegou ao fim
 function confere(id){
-
-    var flag_player_one;
-    var flag_player_two;
-
-    console.log(matriz);
-    var row;
-    var col;
-    console.log(id);
-
+    
     if(i == -1){
-        player_one.push(id);
+        if(verificaId(id,player_one)){
+            player_one.push(id);
+        }
     }else{
-        player_two.push(id);
+        if(verificaId(id,player_two)){
+            player_two.push(id);
+        }
     }
-    console.log(player_one);
-    console.log(player_two);
 
     player_one.sort();
     player_two.sort();
 
-    flag_player_one = verificaVitoria(player_one);
-    flag_player_two = verificaVitoria(player_two);
 
-    if(flag_player_one==true){
-        alert("X ganhou!")
+    if(verificaVitoria(player_one)){
+        alert("X ganhou!");
     }
-
-    if(flag_player_two==true){
-        alert("O ganhou!")
+    if(verificaVitoria(player_two)){
+        alert("O ganhou!");
+    }
+    // if que verifica se o jogo deu velha
+    if(player_one.length + player_two.length == 9){
+        alert("Deu Velha!");
     }
 }
 
+// Funcao que verifica se algum jogador ganhou
 function verificaVitoria(player){
     var counter=0;
 
@@ -95,16 +92,23 @@ function verificaVitoria(player){
             for (var k = 0; k < player.length; k++) {
                if(player[k] == Win_Combinations[i][j]){
                    counter++;
-                   console.log(counter);
                }
                if(counter == 3){
                    return(true);
-                   break;
                }
             }
         }
         counter=0;
     }
-
     return(false);
+}
+
+// Funcao que impede que o mesmo id seja posto mais de uma vez no array player
+function verificaId(id, player){
+    for(var i=0; i < player.length; i++){
+        if(id == player[i]){
+            return(false);
+        }   
+    }        
+    return(true);
 }

@@ -56,13 +56,11 @@ function jogada(id){
 
     }
 
-    console.log(player_one);
-    console.log(player_two);
 
 }
 
 // Confere se o jogo chegou ao fim
-function confere(id){    
+function confere(id){
 
     player_one.sort();
     player_two.sort();
@@ -153,20 +151,5 @@ function reset_button() {
      ];
 
      Times_Played++;
-
-}
-
-function Verify_Repeat_Numbers(player_one, player_two) {
-
-    for (var i = 0; i < 3; i++) {
-        for (var j = 0; j < 3; j++) {
-            if(matriz[i][j] == 'x' || matriz[i][j] == 'o'){
-                return false;
-            }
-        }
-    }
-
-    return true;
-
 
 }

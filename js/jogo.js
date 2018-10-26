@@ -15,10 +15,19 @@ var flag_player = false;
 // Variavel que define quem jogada, o ou x
 var i=1;
 
+//Variavel pra saber quanta vezes jogou
+var Times_Played = 0;
+
 // Funcao bota imagem x ou imagem o na div que foi clicada
 function jogada(id){
     var col, row;
     var divJogada = document.getElementById(id);
+
+
+    if (Times_Played > 0){
+        i = 1;
+        Times_Played = 0;
+    }
 
 
     if(id[0] == 'a'){
@@ -36,26 +45,24 @@ function jogada(id){
         divJogada.innerHTML="<img src='../img/x.png'>";
         matriz[row][col] = 'x';
         i *= -1;
+        player_one.push(id);
+
     }
     if(i==-1 && matriz[row][col]==0){
         divJogada.innerHTML="<img src='../img/o.png'>";
         matriz[row][col] = 'o';
         i *= -1;
+        player_two.push(id);
+
     }
+
+    console.log(player_one);
+    console.log(player_two);
+
 }
 
 // Confere se o jogo chegou ao fim
-function confere(id){
-
-    if(i == -1){
-        if(verificaId(id,player_one)){
-            player_one.push(id);
-        }
-    }else{
-        if(verificaId(id,player_two)){
-            player_two.push(id);
-        }
-    }
+function confere(id){    
 
     player_one.sort();
     player_two.sort();
@@ -127,6 +134,7 @@ function reset_button() {
 
      var id_T;
 
+
      for(var i = 0; i < 3; i++) {
          for(var j = 0; j < 3; j++) {
 
@@ -144,6 +152,21 @@ function reset_button() {
          [0,0,0]
      ];
 
-     i = 1;
+     Times_Played++;
+
+}
+
+function Verify_Repeat_Numbers(player_one, player_two) {
+
+    for (var i = 0; i < 3; i++) {
+        for (var j = 0; j < 3; j++) {
+            if(matriz[i][j] == 'x' || matriz[i][j] == 'o'){
+                return false;
+            }
+        }
+    }
+
+    return true;
+
 
 }

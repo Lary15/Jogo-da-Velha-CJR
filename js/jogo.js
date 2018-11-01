@@ -15,10 +15,20 @@ var flag_player = false;
 // Variavel que define quem jogada, o ou x
 var i=1;
 
+//Variavel pra saber quanta vezes jogou
+var Times_Played = 0;
+
 // Funcao bota imagem x ou imagem o na div que foi clicada
 function jogada(id){
     var col, row;
     var divJogada = document.getElementById(id);
+
+
+    if (Times_Played > 0){
+        i = 1;
+        Times_Played = 0;
+    }
+
 
     if(id[0] == 'a'){
         row = 0;
@@ -35,26 +45,22 @@ function jogada(id){
         divJogada.innerHTML="<img src='../img/x.png'>";
         matriz[row][col] = 'x';
         i *= -1;
+        player_one.push(id);
+
     }
     if(i==-1 && matriz[row][col]==0){
         divJogada.innerHTML="<img src='../img/o.png'>";
         matriz[row][col] = 'o';
         i *= -1;
+        player_two.push(id);
+
     }
+
+
 }
 
 // Confere se o jogo chegou ao fim
 function confere(id){
-    
-    if(i == -1){
-        if(verificaId(id,player_one)){
-            player_one.push(id);
-        }
-    }else{
-        if(verificaId(id,player_two)){
-            player_two.push(id);
-        }
-    }
 
     player_one.sort();
     player_two.sort();
@@ -62,13 +68,16 @@ function confere(id){
 
     if(verificaVitoria(player_one)){
         alert("X ganhou!");
+        reset_button();
     }
     if(verificaVitoria(player_two)){
         alert("O ganhou!");
+        reset_button();
     }
     // if que verifica se o jogo deu velha
     if(player_one.length + player_two.length == 9){
         alert("Deu Velha!");
+        reset_button();
     }
 }
 
@@ -108,7 +117,39 @@ function verificaId(id, player){
     for(var i=0; i < player.length; i++){
         if(id == player[i]){
             return(false);
-        }   
-    }        
+        }
+    }
     return(true);
+}
+
+
+function reset_button() {
+     var Tic_Tac_Toe = [
+         ['a1', 'a2', 'a3'],
+         ['b1', 'b2', 'b3'],
+         ['c1', 'c2', 'c3']
+     ];
+
+     var id_T;
+
+
+     for(var i = 0; i < 3; i++) {
+         for(var j = 0; j < 3; j++) {
+
+             id_T = Tic_Tac_Toe[i][j];
+             document.getElementById(id_T).innerHTML=" ";
+         }
+     }
+
+     player_one = [];
+     player_two = [];
+
+     matriz = [
+         [0,0,0],
+         [0,0,0],
+         [0,0,0]
+     ];
+
+     Times_Played++;
+
 }

@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .wrapper{
     width:100%;
 }
@@ -17,11 +21,16 @@ img{
     float:right;
 }
 
+.line {
+    display: flex;
+    flex-direction: row;
+}
+
 #a1 {
     height: 150px;
     width: 150px;
-    border-bottom: solid 1px;
-    border-right: solid 1px;
+    border-bottom: solid #E5BD5B 3px;
+    border-right: solid  #E5BD5B 3px;
     display: inline-block;
     margin: 0px;
 }
@@ -29,9 +38,9 @@ img{
 #a2 {
     height: 150px;
     width: 150px;
-    border-bottom: solid 1px;
-    border-left: solid 1px;
-    border-right: solid 1px;
+    border-bottom: solid #E5BD5B 3px;
+    border-left: solid #E5BD5B 3px;
+    border-right: solid #E5BD5B 3px;
     display: inline-block;
     margin: 0px;
 }
@@ -39,8 +48,8 @@ img{
 #a3 {
     height: 150px;
     width: 150px;
-    border-bottom: solid 1px;
-    border-left: solid 1px;
+    border-bottom: solid #E5BD5B 3px;
+    border-left: solid #E5BD5B 3px;
     display: inline-block;
     margin: 0px;
 }
@@ -48,9 +57,9 @@ img{
 #b1 {
     height: 150px;
     width: 150px;
-    border-bottom: solid 1px;
-    border-right: solid 1px;
-    border-top: solid 1px;
+    border-bottom: solid #E5BD5B 3px;
+    border-right: solid #E5BD5B 3px;
+    border-top: solid #E5BD5B 3px;
     display: inline-block;
     margin: 0px;
 }
@@ -58,7 +67,7 @@ img{
 #b2 {
     height: 150px;
     width: 150px;
-    border: solid 1px;
+    border: solid #E5BD5B 3px;
     display: inline-block;
     margin: 0px;
 }
@@ -66,9 +75,9 @@ img{
 #b3 {
     height: 150px;
     width: 150px;
-    border-bottom: solid 1px;
-    border-left: solid 1px;
-    border-top: solid 1px;
+    border-bottom: solid #E5BD5B 3px;
+    border-left: solid #E5BD5B 3px;
+    border-top: solid #E5BD5B 3px;
     display: inline-block;
     margin: 0px;
 }
@@ -76,25 +85,41 @@ img{
 #c1 {
     height: 150px;
     width: 150px;
-    border-top: solid 1px;
-    border-right: solid 1px;
+    border-top: solid #E5BD5B 3px;
+    border-right: solid #E5BD5B 3px;
     display: inline-block;
     margin: 0px;
 }
 #c2 {
     height: 150px;
     width: 150px;
-    border-top: solid 1px;
-    border-left: solid 1px;
-    border-right: solid 1px;
+    border-top: solid #E5BD5B 3px;
+    border-left: solid #E5BD5B 3px;
+    border-right: solid #E5BD5B 3px;
     display: inline-block;
     margin: 0px;
 }
 #c3 {
     height: 150px;
     width: 150px;
-    border-top: solid 1px;
-    border-left: solid 1px;
+    border-top: solid#E5BD5B 3px;
+    border-left: solid#E5BD5B 3px;
     display: inline-block;
     margin: 0px;
+}
+
+.button {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    background-color: #053354;
+    height: 40px;
+    width: 70px;
+    border: solid #184969 3px;
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+    left: 400px;
+}
+.button2 { 
+    margin-left: 10px;
 }

@@ -1,21 +1,18 @@
-// Matriz que representa o jogo
+// Matriz que representa o jogo, se uma jogada for feita a posicao dessa jogada deixa de ser zero
 var matriz = [
     [0,0,0],
     [0,0,0],
     [0,0,0]
 ];
 
-//jogadas de cada player
+// Vetor que armazena as jogadas de cada player
 var player_one = [];
 var player_two = [];
-
-//se player one venceu ou nao
-var flag_player = false;
 
 // Variavel que define quem jogada, o ou x
 var i=1;
 
-//Variavel pra saber quanta vezes jogou
+// Variavel pra saber quanta vezes jogou
 var Times_Played = 0;
 
 // Funcao bota imagem x ou imagem o na div que foi clicada
@@ -29,7 +26,7 @@ function jogada(id){
         Times_Played = 0;
     }
 
-
+    // Transforma a id em coordenada para a matriz de jogo
     if(id[0] == 'a'){
         row = 0;
     }
@@ -41,6 +38,7 @@ function jogada(id){
     }
     col = (id[1]-1);
 
+    // Caso i tenha o valor 1 ele joga x, inserindo a imagem como background, caso o valor seja -1 ele joga o 
     if(i==1 && matriz[row][col]==0){
         divJogada.innerHTML="<img src='../img/x.png'>";
         matriz[row][col] = 'x';
@@ -65,7 +63,7 @@ function confere(id){
     player_one.sort();
     player_two.sort();
 
-
+    // Verifica se algum player venceu, chama o alert e depois reseta o jogo
     if(verificaVitoria(player_one)){
         alert("X ganhou!");
         reset_button();
@@ -85,6 +83,7 @@ function confere(id){
 function verificaVitoria(player){
     var counter=0;
 
+    // Matriz com todas as combinacoes de vitoria
     var Win_Combinations = [
         ['a1', 'a2', 'a3'],
         ['b1', 'b2', 'b3'],
@@ -96,6 +95,7 @@ function verificaVitoria(player){
         ['a3', 'b2', 'c1']
     ];
 
+    // Passa pelos vetores de jogadas dos players verificando se algum completou uma das combinacoes
     for(var i=0; i < 8; i++){
         for (var j = 0; j < 3; j++) {
             for (var k = 0; k < player.length; k++) {
@@ -112,17 +112,7 @@ function verificaVitoria(player){
     return(false);
 }
 
-// Funcao que impede que o mesmo id seja posto mais de uma vez no array player
-function verificaId(id, player){
-    for(var i=0; i < player.length; i++){
-        if(id == player[i]){
-            return(false);
-        }
-    }
-    return(true);
-}
-
-
+// Funcao de resetar  jogo
 function reset_button() {
      var Tic_Tac_Toe = [
          ['a1', 'a2', 'a3'],
@@ -132,7 +122,7 @@ function reset_button() {
 
      var id_T;
 
-
+    // Passa em todas as divs retirando as imagens de x e o
      for(var i = 0; i < 3; i++) {
          for(var j = 0; j < 3; j++) {
 
@@ -141,9 +131,11 @@ function reset_button() {
          }
      }
 
+    // Zera os vetores de jogadas
      player_one = [];
      player_two = [];
 
+    //  Zera a matriz do jogo, isto e, todas as posicoes estao livres para jogadas novamente
      matriz = [
          [0,0,0],
          [0,0,0],
@@ -151,5 +143,4 @@ function reset_button() {
      ];
 
      Times_Played++;
-
 }

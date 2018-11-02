@@ -1,0 +1,41 @@
+.c-body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  background: #184969;
+}
+
+.title {
+  font-size: 52px;
+  margin: 100px auto;
+  text-align: center;
+  text-shadow: #46adf1 0 0 10px;
+}
+.button {
+  text-decoration: none;
+  list-style: none;
+  width: 250px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  position: absolute;
+  left: calc(50% - 125px);
+  border: 1px solid rgb(201, 61, 66);
+  background-color: #E9262E;
+  font-size: 24px;
+  text-shadow: rgb(146, 114, 34) 2px 2px 2px;
+  cursor: pointer;
+
+
+  box-shadow: inset 0 0 20px rgba(110, 42, 10, 0);
+  outline: 2px solid;
+  outline-color: rgb(248, 32, 39);
+
+}
+.a{
+  text-decoration: none;
+  color: #E5BD5B;
+}
+.button--start {
+  top: 235px;
+}
+

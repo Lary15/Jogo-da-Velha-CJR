@@ -3,7 +3,7 @@
 
 <head>
 
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
 
 
@@ -15,22 +15,29 @@
 
     <div class="wrapper">
 
-
         <div class="center">
-            <div id="a1"></div>
-            <div id="a2"></div>
-            <div id="a3"></div>
-            <br>
-            <div id="b1"></div>
-            <div id="b2"></div>
-            <div id="b3"></div>
-            <br>
-            <div id="c1"></div>
-            <div id="c2"></div>
-            <div id="c3"></div>
+            <div class="line">
+                <div onclick="jogada(this.id); confere(id)" id="a1"></div>
+                <div onclick="jogada(this.id);confere(id)" id="a2"></div>
+                <div onclick="jogada(this.id); confere(id)" id="a3"></div>
+            </div>
+            <div class="line">
+                <div onclick="jogada(this.id); confere(id)" id="b1"></div>
+                <div onclick="jogada(this.id); confere(id)" id="b2"></div>
+                <div onclick="jogada(this.id); confere(id)" id="b3"></div>
+            </div>
+            <div class="line">
+                <div onclick="jogada(this.id); confere(id)" id="c1"></div>
+                <div onclick="jogada(this.id); confere(id)" id="c2"></div>
+                <div onclick="jogada(this.id); confere(id)" id="c3"></div>
+            </div>
+            <button class="button" type="button" name="button" onclick="reset_button()" id="reset_button">Resetar</button>
+            <a href="../html/TesteMenu.html"><button class="button button2">Menu</button></a>
         </div>
 
     </div>
+    <script type="text/javascript" src="../js/jogo.js"></script>
+
 
 
 </body>
